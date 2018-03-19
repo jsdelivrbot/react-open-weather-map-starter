@@ -1,0 +1,44 @@
+{
+  "name": "react-open-weather-map-starter",
+  "version": "1.0.0",
+  "description": "This is a project to start development with open weather map API.",
+  "main": "./index.js",
+  "dependencies": {
+    "clean-webpack-plugin": "^0.1.19",
+    "concurrently": "^3.5.1",
+    "html-webpack-plugin": "^3.0.6",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-hot-loader": "^4.0.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.12",
+    "webpack-dev-server": "^3.1.1"
+  },
+  "scripts": {
+    "test": "test",
+    "build": "webpack",
+    "start": "concurrently \"webpack -w\" \"webpack-dev-server --env.NODE_ENV=development --hot\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hemavidal/react-open-weather-map-starter.git"
+  },
+  "keywords": [
+    "react",
+    "webpack",
+    "open-weather-map"
+  ],
+  "author": "Hemã Vidal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hemavidal/react-open-weather-map-starter/issues"
+  },
+  "homepage": "https://github.com/hemavidal/react-open-weather-map-starter#readme"
+}
