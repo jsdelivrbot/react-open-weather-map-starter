@@ -1,10 +1,14 @@
 import React, { Component } from 'react'
 import { hot } from 'react-hot-loader'
 
+import AppNavBar from './navbar/AppNavBar.jsx'
+
 class App extends Component {
   render() {
     return (
-      <h1>Hello, world!</h1>
+      <div>
+        <AppNavBar/>
+      </div>
     )
   }
 }
