@@ -8,8 +8,7 @@ module.exports = env => {
   return {
     devtool: 'inline-source-map',
     devServer: {
-      contentBase: './dist',
-      hot: true
+      contentBase: './dist'
     },
     entry: './src/containers/AppContainer.js',
     output: {
@@ -19,14 +18,15 @@ module.exports = env => {
     },
     module: {
       rules: [
-        { test: /\.css$/,
+        {
+          test: /\.css$/,
           use: [
             { loader: "style-loader" },
             { loader: "css-loader" }
           ]
         },
         {
-          test: /\.js|\.jsx?$/,
+          test: /\.(js|jsx)$/,
           exclude: /node_modules/,
           use: "babel-loader"
         }
