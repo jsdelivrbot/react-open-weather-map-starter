@@ -1,6 +1,5 @@
 import fetch from 'cross-fetch'
-import { url, appId } from '../resources/openWeatherMapInfo.json'
-
+ 
 export const REQUEST_WEATHER = 'REQUEST_WEATHER'
 function requestWeather(search) {
   return {
@@ -9,30 +8,33 @@ function requestWeather(search) {
   }
 }
  
-export const RECEIVE_WEATHER_DATA = 'RECEIVE_WEATHER_DATA'
-function receiveWeatherData(search, json) {
-  console.log(json)
+export const RECEIVE_WEATHER = 'RECEIVE_WEATHER'
+function receiveWeather(search, json) {
   return {
-    type: RECEIVE_WEATHER_DATA,
+    type: RECEIVE_WEATHER,
     search,
-    weatherData: json,
+    posts: json.data.children.map(child => child.data),
     receivedAt: Date.now()
   }
 }
  
-export const INVALIDATE_SEARCH = 'INVALIDATE_SEARCH'
-export function invalidateWeatherData(search) {
+export const INVALIDATE_WEATHER = 'INVALIDATE_WEATHER'
+export function invalidateWeather(search) {
   return {
-    type: INVALIDATE_SEARCH,
+    type: INVALIDATE_WEATHER,
     search
   }
 }
-
+ 
+// Meet our first thunk action creator!
+// Though its insides are different, you would use it just like any other action creator:
+// store.dispatch(fetchWeather('reactjs'))
+ 
 export function fetchWeather(search) {
   // Thunk middleware knows how to handle functions.
   // It passes the dispatch method as an argument to the function,
   // thus making it able to dispatch actions itself.
-  console.log('Fetching weather...');
+ 
   return function (dispatch) {
     // First dispatch: the app state is updated to inform
     // that the API call is starting.
@@ -45,29 +47,20 @@ export function fetchWeather(search) {
     // In this case, we return a promise to wait for.
     // This is not required by thunk middleware, but it is convenient for us.
  
-    // return fetch(`${url}?q=${search}&appid=${appId}`)
-    return fetch(`${url}?q=${search}&appid=${appId}`)
+    return fetch(`https://www.reddit.com/r/${search}.json`)
       .then(
         response => response.json(),
         // Do not use catch, because that will also catch
         // any errors in the dispatch and resulting render,
         // causing a loop of 'Unexpected batch number' errors.
-        // https://github.com/facebook/react/issue  s/6895
+        // https://github.com/facebook/react/issues/6895
         error => console.log('An error occurred.', error)
       )
       .then(json =>
         // We can dispatch many times!
         // Here, we update the app state with the results of the API call.
  
-        dispatch(receiveWeatherData(search, json))
+        dispatch(receiveWeather(search, json))
       )
-  }
-}
-
-export const SET_SEARCH_TEXT = 'SET_SEARCH_TEXT'
-export function setSearchText(value) {
-  return {
-    type: SET_SEARCH_TEXT,
-    value
   }
 }
