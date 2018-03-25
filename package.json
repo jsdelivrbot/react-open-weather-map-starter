@@ -8,6 +8,7 @@
     "convert-units": "^2.3.4",
     "cross-fetch": "^2.1.0",
     "css-loader": "^0.28.11",
+    "express": "^4.16.3",
     "jquery": "^3.3.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
@@ -63,7 +64,8 @@
     "build": "webpack",
     "watch": "webpack -w",
     "dev": "webpack-dev-server --hot --inline --env.NODE_ENV=development",
-    "start": "concurrently \"npm run watch\" \"npm run dev\""
+    "start-dev": "concurrently \"npm run watch\" \"npm run dev\"",
+    "start": "npm run build && node server.js"
   },
   "repository": {
     "type": "git",
