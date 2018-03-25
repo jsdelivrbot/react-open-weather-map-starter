@@ -2,7 +2,10 @@
   "name": "react-open-weather-map-starter",
   "version": "1.0.0",
   "description": "This is a project to start development with open weather map API.",
-  "main": "./index.js",
+  "main": "index.js",
+  "engines": {
+    "node": "8.9.1"
+  },
   "dependencies": {
     "bootstrap": "^4.0.0",
     "convert-units": "^2.3.4",
@@ -65,7 +68,7 @@
     "watch": "webpack -w",
     "dev": "webpack-dev-server --hot --inline --env.NODE_ENV=development",
     "start-dev": "concurrently \"npm run watch\" \"npm run dev\"",
-    "start": "npm run build && node server.js"
+    "start": "npm run build && node index.js"
   },
   "repository": {
     "type": "git",
