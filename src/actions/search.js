@@ -1,4 +1,4 @@
-import fetch from 'cross-fetch'
+// import fetch from 'cross-fetch'
 import { url, appId } from '../resources/openWeatherMapInfo.json'
 
 export const REQUEST_WEATHER = 'REQUEST_WEATHER'
