@@ -1,6 +1,6 @@
 // import fetch from 'cross-fetch'
-const url = process.env.API_URL
-const appId = process.env.APP_ID
+const url = process.env.WEATHER_URL
+const appId = process.env.WEATHER_APP_ID
 
 export const REQUEST_WEATHER = 'REQUEST_WEATHER'
 function requestWeather(search) {
