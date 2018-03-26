@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const webpack = require('webpack')
 
 module.exports = env => {
   if (env && env.NODE_ENV) {
@@ -36,6 +37,13 @@ module.exports = env => {
     plugins: [
       new HtmlWebpackPlugin({
         template: './index.html'
+      }),
+      new webpack.DefinePlugin({
+        'process.env': {
+          'NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+          'WEATHER_URL': JSON.stringify(process.env.WEATHER_URL),
+          'WEATHER_APP_ID': JSON.stringify(process.env.WEATHER_APP_ID)
+        }
       })
     ]
   }
