@@ -11,7 +11,6 @@ function requestWeather(search) {
  
 export const RECEIVE_WEATHER_DATA = 'RECEIVE_WEATHER_DATA'
 function receiveWeatherData(search, json) {
-  console.log(json)
   return {
     type: RECEIVE_WEATHER_DATA,
     search,

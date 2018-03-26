@@ -8,11 +8,11 @@ module.exports = env => {
   return {
     devtool: 'inline-source-map',
     devServer: {
-      contentBase: './dist'
+      contentBase: './public'
     },
     entry: './src/containers/AppContainer.js',
     output: {
-      path: path.resolve(__dirname, 'dist'),
+      path: path.resolve(__dirname, 'public'),
       publicPath: '/',
       filename: 'app.bundle.js'
     },
