@@ -1,4 +1,5 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = env => {
   if (env && env.NODE_ENV) {
@@ -31,6 +32,11 @@ module.exports = env => {
           use: "babel-loader"
         }
       ]
-    }
+    },
+    plugins: [
+      new HtmlWebpackPlugin({
+        template: './index.html'
+      })
+    ]
   }
 };
