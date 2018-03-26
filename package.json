@@ -6,6 +6,15 @@
   "engines": {
     "node": "8.9.4"
   },
+  "scripts": {
+    "test": "jest --verbose",
+    "build": "webpack",
+    "watch": "webpack -w",
+    "dev": "webpack-dev-server --hot --inline --env.NODE_ENV=development",
+    "start-dev": "concurrently \"npm run watch\" \"npm run dev\"",
+    "start": "node index.js",
+    "heroku-postbuild": "webpack -p --config ./webpack.config.js --progress"
+  },
   "dependencies": {
     "bootstrap": "^4.0.0",
     "convert-units": "^2.3.4",
@@ -61,14 +70,6 @@
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
       "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
     }
-  },
-  "scripts": {
-    "test": "jest --verbose",
-    "build": "webpack",
-    "watch": "webpack -w",
-    "dev": "webpack-dev-server --hot --inline --env.NODE_ENV=development",
-    "start-dev": "concurrently \"npm run watch\" \"npm run dev\"",
-    "start": "npm run build && node index.js"
   },
   "repository": {
     "type": "git",
