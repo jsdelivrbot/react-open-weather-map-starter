@@ -1,6 +1,6 @@
 // import fetch from 'cross-fetch'
-const url = process.env.API_URL || require('../resources/openWeatherMapInfo.json').url
-const appId = process.env.APP_ID || require('../resources/openWeatherMapInfo.json').appId
+const url = process.env.API_URL
+const appId = process.env.APP_ID
 
 export const REQUEST_WEATHER = 'REQUEST_WEATHER'
 function requestWeather(search) {
