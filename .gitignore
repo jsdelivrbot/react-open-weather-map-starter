@@ -60,3 +60,5 @@ typings/
 src/resources/openWeatherMapInfo\.json
 
 package-lock\.json
+
+public/
